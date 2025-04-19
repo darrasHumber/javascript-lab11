@@ -72,4 +72,8 @@ console.log(bread.toString());
 console.log(`${bread.name} subtotal is $${bread.getValue().toFixed(2)}`);
 
 //Part 4: Store Management
-class Store {}
+class Store {
+  constructor() {
+    this.inventory = [];
+  }
+}
