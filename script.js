@@ -84,4 +84,11 @@ class Store {
     this.inventory.push(product);
     return this; // Allow method chaining
   }
+
+  getInventoryValue() {
+    return this.inventory.reduce(
+      (total, product) => total + product.getTotalValue(),
+      0
+    );
+  }
 }
