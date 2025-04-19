@@ -1,22 +1,42 @@
 // Part 1: Setting Up Classes
 class Product {
+  /**
+   * Creates a Product instance
+   * @constructor
+   * @param {string} name - The product name
+   * @param {number} price - The product price (must be positive)
+   * @param {number} quantity - The quantity in stock (must be non-negative)
+   */
   constructor(name, price, quantity) {
     this.name = name;
     this.price = price;
     this.quantity = quantity;
   }
-  //Calculate subtotal
+  /**
+   * Calculates the total value of the product (price × quantity)
+   * @returns {number} The total value
+   */
   getValue() {
     return this.price * this.quantity;
   }
-  //print the Product in a nice way
+  /**
+   * Returns a formatted string representation of the product
+   * @returns {string} Formatted product information
+   */
   toString() {
     return `Product: ${this.name}, Price: $${this.price.toFixed(2)},Quantity: ${
       this.quantity
     }`;
   }
   // Part 3: Static Methods and Properties
-  // Static method to apply discount to an array of products
+  /**
+   * Applies discount to an array of products
+   * @static
+   * @param {Array<Product|PerishableProduct>} products - Array of products to discount
+   * @param {number} discount - Discount percentage (0-1)
+   * @returns {Array<Product|PerishableProduct>} New array with discounted products
+   * @throws {Error} If invalid inputs are provided
+   */
   static applyDiscount(products, discount) {
     // Validate inputs
     if (!Array.isArray(products)) {
