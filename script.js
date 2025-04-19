@@ -11,6 +11,11 @@ class Product {
   }
   //print the Product in a nice way
   toString() {
-    retuen`Product: ${this.name}, Price: ${this.price},Quantity: ${this.quantity}`;
+    return `Product: ${this.name}, Price: ${this.price},Quantity: ${this.quantity}`;
   }
 }
+
+console.log("Test Product Class\n\n");
+const galaApple = new Product("Apple", 1.99, 5);
+console.log(galaApple.getValue());
+console.log(galaApple.toString());
