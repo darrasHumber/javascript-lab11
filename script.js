@@ -26,17 +26,25 @@ class Product {
 
     // Apply discount to each product
     return products.map((product) => {
-      // Verify each item is a Product or PerishableProduct instance
-      if (!(product instanceof Product)) {
-        throw new Error("Array contains non-product items");
-      }
+      // Create a new instance of the same class as the original product
+      let discountedProduct;
 
-      // Create a new object to avoid mutating the original
-      const discountedProduct = {
-        ...product,
-        price: product.price * (1 - discount), // Apply discount
-        originalPrice: product.price, // Store original price
-      };
+      if (product instanceof PerishableProduct) {
+        discountedProduct = new PerishableProduct(
+          product.name,
+          product.price * (1 - discount), // Apply discount
+          product.quantity,
+          product.expirationDate
+        );
+        discountedProduct.originalPrice = product.price; // Store original price
+      } else {
+        discountedProduct = new Product(
+          product.name,
+          product.price * (1 - discount), // Apply discount
+          product.quantity
+        );
+        discountedProduct.originalPrice = product.price; // Store original price
+      }
 
       return discountedProduct;
     });
@@ -78,9 +86,6 @@ class Store {
   }
 
   addProduct(product) {
-    if (!(product instanceof Product)) {
-      throw new Error("Can only add Product or PerishableProduct instances");
-    }
     this.inventory.push(product);
     return this; // Allow method chaining
   }
@@ -122,4 +127,15 @@ products.forEach((product) => myStore.addProduct(product));
 console.log("=== Initial Inventory ===");
 console.log(
   `Total Inventory Value: $${myStore.getInventoryValue().toFixed(2)}\n`
+);
+
+//Apply 15% discount
+const discountedProducts = Product.applyDiscount(myStore.inventory, 0.15);
+const discountedStore = new Store();
+discountedProducts.forEach((p) => discountedStore.addProduct(p));
+
+// Display discounted inventory value
+console.log("=== After 15% Discount ===");
+console.log(
+  `Total Inventory Value: $${discountedStore.getInventoryValue().toFixed(2)}\n`
 );
