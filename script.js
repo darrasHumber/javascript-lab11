@@ -101,3 +101,13 @@ class Store {
     );
   }
 }
+
+// Part 5: Testing the System
+// Create at least 5 products, including at least 2 PerishableProduct objects.
+const products = [
+  new Product("Laptop", 999.99, 10),
+  new Product("Mouse", 24.99, 50),
+  new Product("Keyboard", 49.99, 30),
+  new PerishableProduct("Milk", 3.49, 100, "2023-12-15"),
+  new PerishableProduct("Cheese", 5.99, 40, "2024-01-10"),
+];
