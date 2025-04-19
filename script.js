@@ -13,6 +13,34 @@ class Product {
   toString() {
     return `Product: ${this.name}, Price: $${this.price},Quantity: ${this.quantity}`;
   }
+  // Part 3: Static Methods and Properties
+  // Static method to apply discount to an array of products
+  static applyDiscount(products, discount) {
+    // Validate inputs
+    if (!Array.isArray(products)) {
+      throw new Error("First argument must be an array of products");
+    }
+    if (typeof discount !== "number" || discount < 0 || discount > 1) {
+      throw new Error("Discount must be a number between 0 and 1");
+    }
+
+    // Apply discount to each product
+    return products.map((product) => {
+      // Verify each item is a Product or PerishableProduct instance
+      if (!(product instanceof Product)) {
+        throw new Error("Array contains non-product items");
+      }
+
+      // Create a new object to avoid mutating the original
+      const discountedProduct = {
+        ...product,
+        price: product.price * (1 - discount), // Apply discount
+        originalPrice: product.price, // Store original price
+      };
+
+      return discountedProduct;
+    });
+  }
 }
 
 console.log("Test Product Class\n\n");
