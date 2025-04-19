@@ -19,3 +19,6 @@ console.log("Test Product Class\n\n");
 const galaApple = new Product("Apple", 1.99, 5);
 console.log(galaApple.getValue());
 console.log(galaApple.toString());
+
+// Part 2: Adding Inheritance
+class PerishableProduct extends Product {}
