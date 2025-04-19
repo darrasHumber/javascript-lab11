@@ -76,4 +76,12 @@ class Store {
   constructor() {
     this.inventory = [];
   }
+
+  addProduct(product) {
+    if (!(product instanceof Product)) {
+      throw new Error("Can only add Product or PerishableProduct instances");
+    }
+    this.inventory.push(product);
+    return this; // Allow method chaining
+  }
 }
