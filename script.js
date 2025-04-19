@@ -11,7 +11,9 @@ class Product {
   }
   //print the Product in a nice way
   toString() {
-    return `Product: ${this.name}, Price: $${this.price},Quantity: ${this.quantity}`;
+    return `Product: ${this.name}, Price: $${this.price.toFixed(2)},Quantity: ${
+      this.quantity
+    }`;
   }
   // Part 3: Static Methods and Properties
   // Static method to apply discount to an array of products
@@ -66,7 +68,9 @@ class PerishableProduct extends Product {
     this.expirationDate = expirationDate;
   }
   toString() {
-    return `Product: ${this.name}, Price: $${this.price},Quantity: ${this.quantity}, Expiry Date: ${this.expirationDate}`;
+    return `Product: ${this.name}, Price: $${this.price.toFixed(2)},Quantity: ${
+      this.quantity
+    }, Expiry Date: ${this.expirationDate}`;
   }
 }
 
@@ -151,3 +155,7 @@ if (foundProduct) {
 } else {
   console.log(`Product "${searchName}" not found.`);
 }
+
+// Display full inventory details
+console.log("\n=== Full Inventory Details ===");
+discountedProducts.forEach((p) => console.log(p.toString()));
