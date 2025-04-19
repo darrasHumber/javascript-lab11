@@ -87,7 +87,7 @@ class Store {
 
   getInventoryValue() {
     return this.inventory.reduce(
-      (total, product) => total + product.getTotalValue(),
+      (total, product) => total + product.getValue(),
       0
     );
   }
@@ -111,3 +111,15 @@ const products = [
   new PerishableProduct("Milk", 3.49, 100, "2023-12-15"),
   new PerishableProduct("Cheese", 5.99, 40, "2024-01-10"),
 ];
+
+//Display initial inventory
+console.log("\n\n System Testing");
+//Create new store
+const myStore = new Store();
+//Add products to the store
+products.forEach((product) => myStore.addProduct(product));
+
+console.log("=== Initial Inventory ===");
+console.log(
+  `Total Inventory Value: $${myStore.getInventoryValue().toFixed(2)}\n`
+);
