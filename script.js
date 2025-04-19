@@ -8,4 +8,7 @@ class Product {
   getValue() {
     return this.price * this.quantity;
   }
+  toString() {
+    retuen`Product: ${this.name}, Price: ${this.price},Quantity: ${this.quantity}`;
+  }
 }
