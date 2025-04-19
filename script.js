@@ -91,4 +91,13 @@ class Store {
       0
     );
   }
+
+  findProductByName(name) {
+    const searchName = name.toLowerCase();
+    return (
+      this.inventory.find(
+        (product) => product.name.toLowerCase() === searchName
+      ) || null
+    );
+  }
 }
