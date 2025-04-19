@@ -70,3 +70,6 @@ console.log(milk.toString());
 console.log(`${milk.name} subtotal is $${milk.getValue().toFixed(2)}`);
 console.log(bread.toString());
 console.log(`${bread.name} subtotal is $${bread.getValue().toFixed(2)}`);
+
+//Part 4: Store Management
+class Store {}
