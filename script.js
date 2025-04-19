@@ -139,3 +139,15 @@ console.log("=== After 15% Discount ===");
 console.log(
   `Total Inventory Value: $${discountedStore.getInventoryValue().toFixed(2)}\n`
 );
+
+// Find and display a specific product
+const searchName = "cheese";
+const foundProduct = discountedStore.findProductByName(searchName);
+
+console.log("=== Product Search ===");
+if (foundProduct) {
+  console.log(`Found product "${searchName}":`);
+  console.log(foundProduct.toString());
+} else {
+  console.log(`Product "${searchName}" not found.`);
+}
