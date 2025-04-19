@@ -126,23 +126,42 @@ console.log(bread.toString());
 console.log(`${bread.name} subtotal is $${bread.getValue().toFixed(2)}`);
 
 //Part 4: Store Management
+/**
+ * Represents a store inventory management system
+ * @class
+ */
 class Store {
   constructor() {
+    /**
+     * Creates a Store instance with empty inventory
+     * @constructor
+     */
     this.inventory = [];
   }
-
+  /**
+   * Adds a product to the store inventory
+   * @param {Product|PerishableProduct} product - The product to add
+   * @returns {Store} Returns the Store instance for chaining
+   */
   addProduct(product) {
     this.inventory.push(product);
     return this; // Allow method chaining
   }
-
+  /**
+   * Calculates the total value of all products in inventory
+   * @returns {number} Total inventory value
+   */
   getInventoryValue() {
     return this.inventory.reduce(
       (total, product) => total + product.getValue(),
       0
     );
   }
-
+  /**
+   * Finds a product in inventory by name (case-insensitive)
+   * @param {string} name - The product name to search for
+   * @returns {Product|PerishableProduct|null} Found product or null if not found
+   */
   findProductByName(name) {
     const searchName = name.toLowerCase();
     return (
