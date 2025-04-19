@@ -1,4 +1,8 @@
 // Part 1: Setting Up Classes
+/**
+ * Represents a basic product with name, price, and quantity
+ * @class
+ */
 class Product {
   /**
    * Creates a Product instance
@@ -82,11 +86,29 @@ console.log(
 );
 
 // Part 2: Adding Inheritance
+/**
+ * Represents a perishable product that extends Product with expiration date
+ * @class
+ * @extends Product
+ */
 class PerishableProduct extends Product {
+  /**
+   * Creates a PerishableProduct instance
+   * @constructor
+   * @param {string} name - The product name
+   * @param {number} price - The product price
+   * @param {number} quantity - The quantity in stock
+   * @param {string} expirationDate - The expiration date (format: YYYY-MM-DD)
+   */
   constructor(name, price, quantity, expirationDate) {
     super(name, price, quantity);
     this.expirationDate = expirationDate;
   }
+  /**
+   * Returns a formatted string representation including expiration date
+   * @override
+   * @returns {string} Formatted product information with expiry
+   */
   toString() {
     return `Product: ${this.name}, Price: $${this.price.toFixed(2)},Quantity: ${
       this.quantity
