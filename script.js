@@ -118,7 +118,7 @@ class PerishableProduct extends Product {
 
 // Test PerishableProduc class
 const milk = new PerishableProduct("Milk", 6.99, 2, "20=04-2025");
-const bread = new PerishableProduct("bread", 2.99, 3, "28=04-2025");
+const bread = new PerishableProduct("bread", 2.99, 3, "28-04-2025");
 console.log("\nTest PerishableProduct class\n\n");
 console.log(milk.toString());
 console.log(`${milk.name} subtotal is $${milk.getValue().toFixed(2)}`);
@@ -178,12 +178,14 @@ const products = [
   new Product("Laptop", 999.99, 10),
   new Product("Mouse", 24.99, 50),
   new Product("Keyboard", 49.99, 30),
-  new PerishableProduct("Milk", 3.49, 100, "2023-12-15"),
-  new PerishableProduct("Cheese", 5.99, 40, "2024-01-10"),
+  new PerishableProduct("Milk", 3.49, 100, "15-04-2025"),
+  new PerishableProduct("Cheese", 5.99, 40, "27-04-2025"),
 ];
 
+//part 5
+console.log("\n\nSystem Testing");
+
 //Display initial inventory
-console.log("\n\n System Testing");
 //Create new store
 const myStore = new Store();
 //Add products to the store
